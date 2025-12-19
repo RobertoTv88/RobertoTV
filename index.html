@@ -1,462 +1,216 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>RobertoTV – TV por internet (TDT legal)</title>
-  <meta name="description" content="Planes Imperium Plus y Diamante VIP. Prueba 24h y soporte por WhatsApp." />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RobertoTV</title>
 
-  <style>
-    :root{
-      --bg1:#061427;
-      --bg2:#081b33;
-      --card: rgba(255,255,255,.06);
-      --card2: rgba(255,255,255,.08);
-      --line: rgba(255,255,255,.10);
-      --text:#e9f1ff;
-      --muted: rgba(233,241,255,.72);
-      --brand:#58b7ff;
-      --brand2:#7dd3ff;
-      --gold:#f7d37a;
-      --ok:#3ef3a0;
-      --shadow: 0 20px 60px rgba(0,0,0,.40);
-      --radius: 22px;
-    }
+<style>
+:root{
+  --bg:#0b1220;
+  --card:#101a2f;
+  --accent:#4da3ff;
+  --text:#e6ecff;
+}
 
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family: system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;
-      color:var(--text);
-      background:
-        radial-gradient(1000px 600px at 20% 0%, rgba(88,183,255,.18), transparent 60%),
-        radial-gradient(900px 700px at 100% 20%, rgba(247,211,122,.12), transparent 55%),
-        linear-gradient(180deg, var(--bg1), var(--bg2));
-    }
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;
+  background:linear-gradient(180deg,#0b1220,#0f1c36);
+  color:var(--text);
+}
 
-    a{color:inherit}
-    .wrap{max-width:980px;margin:0 auto;padding:22px 16px 70px}
-    .topbar{
-      display:flex;align-items:center;justify-content:space-between;
-      gap:12px;
-      padding:14px 14px;
-      background:rgba(255,255,255,.05);
-      border:1px solid var(--line);
-      border-radius:18px;
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(10px);
-      position:sticky;top:10px;z-index:10;
-    }
-    .brand{
-      display:flex;align-items:center;gap:12px;min-width:0;
-    }
-    .logo{
-      width:46px;height:46px;border-radius:14px;
-      background: linear-gradient(135deg, rgba(88,183,255,.9), rgba(125,211,255,.65));
-      display:grid;place-items:center;
-      font-weight:900;letter-spacing:.5px;color:#00142a;
-      box-shadow: 0 12px 30px rgba(88,183,255,.25);
-      flex:0 0 auto;
-    }
-    .brand h1{
-      font-size:16px;margin:0;line-height:1.1;
-      white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
-    }
-    .brand p{margin:2px 0 0;font-size:12px;color:var(--muted)}
-    .actions{display:flex;gap:10px;flex:0 0 auto}
-    .btn{
-      border:0;
-      padding:11px 14px;
-      border-radius:14px;
-      background: rgba(255,255,255,.06);
-      color:var(--text);
-      border:1px solid var(--line);
-      font-weight:700;
-      cursor:pointer;
-      text-decoration:none;
-      display:inline-flex;align-items:center;gap:8px;
-    }
-    .btn.primary{
-      background: linear-gradient(135deg, rgba(88,183,255,.95), rgba(125,211,255,.75));
-      color:#00142a;
-      border:0;
-      box-shadow: 0 14px 35px rgba(88,183,255,.22);
-    }
+.container{
+  max-width:920px;
+  margin:auto;
+  padding:20px;
+}
 
-    .hero{
-      margin-top:18px;
-      padding:22px;
-      border-radius: var(--radius);
-      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.04));
-      border:1px solid var(--line);
-      box-shadow: var(--shadow);
-      overflow:hidden;
-      position:relative;
-    }
-    .hero:before{
-      content:"";
-      position:absolute;inset:-40px -60px auto auto;
-      width:260px;height:260px;
-      background: radial-gradient(circle, rgba(247,211,122,.20), transparent 70%);
-      filter: blur(0px);
-      transform: rotate(10deg);
-    }
-    .heroGrid{
-      display:grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap:18px;
-      align-items:center;
-      position:relative;
-      z-index:1;
-    }
-    .hero h2{margin:0 0 8px;font-size:30px;letter-spacing:.2px}
-    .hero p{margin:0 0 14px;color:var(--muted);font-size:14px;line-height:1.5}
-    .badges{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
-    .badge{
-      display:inline-flex;align-items:center;gap:8px;
-      padding:10px 12px;
-      border-radius:999px;
-      background: rgba(255,255,255,.06);
-      border:1px solid var(--line);
-      color:var(--text);
-      font-weight:700;
-      font-size:13px;
-    }
+.card{
+  background:linear-gradient(180deg,#121e38,#0f1a30);
+  border-radius:22px;
+  padding:22px;
+  margin-bottom:28px;
+  box-shadow:0 25px 60px rgba(0,0,0,.45);
+}
 
-    .heroImg{
-      width:100%;
-      aspect-ratio: 4/5;
-      border-radius: 18px;
-      border:1px solid var(--line);
-      overflow:hidden;
-      background: rgba(0,0,0,.25);
-      box-shadow: 0 18px 40px rgba(0,0,0,.35);
-    }
-    .heroImg img{width:100%;height:100%;object-fit:cover;display:block}
+.header{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin-bottom:20px;
+}
 
-    .section{margin-top:22px}
-    .sectionTitle{
-      display:flex;align-items:center;justify-content:space-between;gap:10px;
-      margin:0 0 12px;
-    }
-    .sectionTitle h3{margin:0;font-size:18px}
-    .stars{
-      color:var(--gold);
-      font-weight:900;
-      letter-spacing:.5px;
-      white-space:nowrap;
-    }
-    .reviews{
-      display:grid;
-      grid-template-columns: 1fr;
-      gap:12px;
-    }
-    .review{
-      padding:14px 14px;
-      border-radius:18px;
-      background: rgba(255,255,255,.05);
-      border:1px solid var(--line);
-      color:var(--text);
-    }
-    .review p{margin:0;color:var(--text);line-height:1.5}
-    .review small{display:block;margin-top:8px;color:var(--muted);font-weight:700}
+.logo{
+  width:54px;
+  height:54px;
+  border-radius:16px;
+  background:#4da3ff;
+  color:#08142b;
+  font-weight:900;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
 
-    .plans{
-      display:grid;
-      grid-template-columns: 1fr;
-      gap:16px;
-      margin-top:12px;
-    }
-    .planCard{
-      border-radius: var(--radius);
-      background: rgba(255,255,255,.05);
-      border:1px solid var(--line);
-      box-shadow: var(--shadow);
-      overflow:hidden;
-    }
-    .planHeader{
-      display:grid;
-      grid-template-columns: 1fr;
-    }
-    .planCover{
-      width:100%;
-      background: rgba(0,0,0,.25);
-      border-bottom:1px solid var(--line);
-      max-height: 360px;
-      overflow:hidden;
-    }
-    .planCover img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      display:block;
-    }
-    .planBody{padding:16px 16px 18px}
-    .pill{
-      display:inline-flex;align-items:center;gap:8px;
-      padding:9px 12px;
-      border-radius:999px;
-      background: rgba(0,0,0,.28);
-      border:1px solid var(--line);
-      font-weight:900;
-      letter-spacing:.2px;
-      margin-bottom:10px;
-    }
-    .planName{
-      margin:0;
-      font-size:34px;
-      letter-spacing:.2px;
-    }
-    .planDesc{margin:8px 0 0;color:var(--muted);line-height:1.5}
+.btn{
+  display:inline-block;
+  padding:14px 18px;
+  border-radius:14px;
+  background:linear-gradient(135deg,#4da3ff,#7fb7ff);
+  color:#08142b;
+  text-decoration:none;
+  font-weight:700;
+  margin-top:12px;
+}
 
-    .grid3{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap:12px;
-      margin-top:14px;
-    }
-    .box{
-      padding:12px;
-      border-radius:18px;
-      background: rgba(255,255,255,.05);
-      border:1px solid var(--line);
-    }
-    .box h4{margin:0 0 8px;font-size:14px;color:var(--muted);font-weight:900;text-transform:uppercase;letter-spacing:.6px}
-    table{width:100%;border-collapse:collapse}
-    td{padding:8px 0;border-bottom:1px solid rgba(255,255,255,.07);font-weight:700}
-    td:first-child{color:var(--muted);font-weight:800}
-    td:last-child{text-align:right}
-    tr:last-child td{border-bottom:0}
-    .best{
-      display:inline-flex;
-      padding:6px 10px;border-radius:999px;
-      background: rgba(62,243,160,.12);
-      border:1px solid rgba(62,243,160,.35);
-      color: var(--ok);
-      font-weight:900;
-      font-size:12px;
-      margin-left:8px;
-      vertical-align:middle;
-    }
+.badges{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:14px;
+}
 
-    .ctaRow{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
-    .btn.full{flex:1 1 220px;justify-content:center}
+.badge{
+  background:rgba(255,255,255,.08);
+  padding:10px 14px;
+  border-radius:999px;
+  font-size:14px;
+}
 
-    .footer{
-      margin-top:30px;
-      text-align:center;
-      color:rgba(233,241,255,.55);
-      font-size:12px;
-    }
+/* IMÁGENES SIN RECORTE */
+.img-box{
+  width:100%;
+  margin:22px 0;
+  border-radius:20px;
+  overflow:hidden;
+  background:rgba(255,255,255,.04);
+}
+.img-box img{
+  width:100%;
+  height:auto;
+  display:block;
+  object-fit:contain;
+}
+.img-small img{
+  max-height:480px;
+}
 
-    /* Responsive */
-    @media (max-width:820px){
-      .heroGrid{grid-template-columns: 1fr}
-      .heroImg{aspect-ratio: 16/10}
-      .grid3{grid-template-columns: 1fr}
-      .planName{font-size:30px}
-      .actions .btn{padding:10px 12px}
-    }
-  </style>
+/* PLANES */
+.plan-title{
+  font-size:28px;
+  margin-bottom:6px;
+}
+.price-row{
+  display:flex;
+  justify-content:space-between;
+  padding:10px 0;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.stars{
+  color:#ffd36a;
+  font-size:20px;
+}
+.review{
+  background:rgba(255,255,255,.06);
+  padding:16px;
+  border-radius:16px;
+  margin-top:12px;
+}
+</style>
 </head>
 
 <body>
-  <div class="wrap">
+<div class="container">
 
-    <!-- TOP BAR -->
-    <div class="topbar">
-      <div class="brand">
-        <div class="logo">RT</div>
-        <div style="min-width:0">
-          <h1>RobertoTv</h1>
-          <p>TV por internet (TDT legal)</p>
-        </div>
-      </div>
-      <div class="actions">
-        <a class="btn" href="#planes">Ver planes</a>
-        <a class="btn primary" href="https://wa.me/34612268368?text=Hola%2C%20quiero%20informaci%C3%B3n%20y%20prueba%2024h%20por%20favor." target="_blank" rel="noopener">WhatsApp</a>
-      </div>
+<!-- CABECERA -->
+<div class="card">
+  <div class="header">
+    <div class="logo">RT</div>
+    <div>
+      <h2 style="margin:0">RobertoTV</h2>
+      <small>TV por internet</small>
     </div>
-
-    <!-- HERO -->
-    <div class="hero">
-      <div class="heroGrid">
-        <div>
-          <h2>Calidad premium, activación rápida y soporte real</h2>
-          <p>
-            Elige tu plan y pide <b>prueba 24h</b> por WhatsApp.
-            Todo claro, simple y sin líos.
-          </p>
-
-          <div class="badges">
-            <div class="badge">⚡ Activación rápida</div>
-            <div class="badge">🛡️ Privacidad</div>
-            <div class="badge">🕒 Soporte 24/7</div>
-            <div class="badge">🎁 Prueba 24h</div>
-            <div class="badge">📺 Calidad premium</div>
-          </div>
-        </div>
-
-        <!-- Imagen de portada opcional: FUTBOL.png -->
-        <div class="heroImg">
-          <img src="FUTBOL.png" alt="Portada" onerror="this.style.display='none'">
-        </div>
-      </div>
-    </div>
-
-    <!-- OPINIONES -->
-    <div class="section" id="opiniones">
-      <div class="sectionTitle">
-        <h3>Clientes satisfechos</h3>
-        <div class="stars">★★★★★ 5,0</div>
-      </div>
-
-      <div class="reviews">
-        <div class="review">
-          <p>“Funciona perfecto, muy estable y el soporte contesta rápido.”</p>
-          <small>— Carlos M.</small>
-        </div>
-        <div class="review">
-          <p>“Calidad brutal, sin cortes y activación en minutos.”</p>
-          <small>— Laura G.</small>
-        </div>
-        <div class="review">
-          <p>“Probé otros y este es el mejor con diferencia.”</p>
-          <small>— Javier R.</small>
-        </div>
-      </div>
-    </div>
-
-    <!-- PLANES -->
-    <div class="section" id="planes">
-      <div class="sectionTitle">
-        <h3>Planes disponibles</h3>
-        <div style="color:var(--muted);font-weight:800;font-size:12px">Pide prueba 24h o contrata</div>
-      </div>
-
-      <div class="plans">
-
-        <!-- IMPERIUM -->
-        <div class="planCard">
-          <div class="planHeader">
-            <!-- FOTO ARRIBA (más pequeña y sin “comerse” todo) -->
-            <div class="planCover" style="max-height:280px;">
-              <img src="imperium.jpg.png" alt="Imperium Plus" style="object-position:center top;"
-                   onerror="this.style.display='none'">
-            </div>
-          </div>
-
-          <div class="planBody">
-            <div class="pill">🔥 IMPERIUM PLUS</div>
-            <h3 class="planName">Imperium Plus</h3>
-            <p class="planDesc">Calidad premium con soporte. Ideal para empezar.</p>
-
-            <div class="grid3">
-              <div class="box">
-                <h4>👤 1 conexión / dispositivo</h4>
-                <table>
-                  <tr><td>⏱️ 3 meses</td><td>22 €</td></tr>
-                  <tr><td>⏱️ 6 meses</td><td>31 €</td></tr>
-                  <tr><td>⏱️ 12 meses</td><td><b>40 €</b> <span class="best">Mejor</span></td></tr>
-                </table>
-              </div>
-
-              <div class="box">
-                <h4>👥 2 conexiones</h4>
-                <table>
-                  <tr><td>⏱️ 3 meses</td><td>43 €</td></tr>
-                  <tr><td>⏱️ 6 meses</td><td>60 €</td></tr>
-                  <tr><td>⏱️ 12 meses</td><td><b>78 €</b> <span class="best">Mejor</span></td></tr>
-                </table>
-              </div>
-
-              <div class="box">
-                <h4>👥👥👥 3 conexiones</h4>
-                <table>
-                  <tr><td>⏱️ 3 meses</td><td>61 €</td></tr>
-                  <tr><td>⏱️ 6 meses</td><td>86 €</td></tr>
-                  <tr><td>⏱️ 12 meses</td><td><b>112 €</b> <span class="best">Mejor</span></td></tr>
-                </table>
-              </div>
-            </div>
-
-            <div class="ctaRow">
-              <a class="btn primary full" target="_blank" rel="noopener"
-                 href="https://wa.me/34612268368?text=Hola%2C%20quiero%20PRUEBA%2024H%20del%20plan%20IMPERIUM%20PLUS.%20Gracias.">
-                 📲 Prueba 24h Imperium
-              </a>
-              <a class="btn full" target="_blank" rel="noopener"
-                 href="https://wa.me/34612268368?text=Hola%2C%20quiero%20CONTRATAR%20IMPERIUM%20PLUS.%20Ind%C3%ADcame%20opciones%20(1%2F2%2F3%20conexiones)%20y%20pago.%20Gracias.">
-                 ✅ Contratar Imperium
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- DIAMANTE -->
-        <div class="planCard">
-          <div class="planHeader">
-            <!-- FOTO ARRIBA (más controlada para que no sea gigante) -->
-            <div class="planCover" style="max-height:320px;">
-              <img src="diamante.jpg" alt="Diamante VIP" style="object-position:center 20%;"
-                   onerror="this.style.display='none'">
-            </div>
-          </div>
-
-          <div class="planBody">
-            <div class="pill">💎 DIAMANTE VIP</div>
-            <h3 class="planName">Diamante VIP</h3>
-            <p class="planDesc">Máxima calidad y soporte premium.</p>
-
-            <div class="grid3">
-              <div class="box">
-                <h4>👤 1 conexión / dispositivo</h4>
-                <table>
-                  <tr><td>⏱️ 3 meses</td><td>30 €</td></tr>
-                  <tr><td>⏱️ 6 meses</td><td>46 €</td></tr>
-                  <tr><td>⏱️ 12 meses</td><td><b>59 €</b> <span class="best">Mejor</span></td></tr>
-                </table>
-              </div>
-
-              <div class="box">
-                <h4>👥 2 conexiones</h4>
-                <table>
-                  <tr><td>⏱️ 3 meses</td><td>58 €</td></tr>
-                  <tr><td>⏱️ 6 meses</td><td>89 €</td></tr>
-                  <tr><td>⏱️ 12 meses</td><td><b>114 €</b> <span class="best">Mejor</span></td></tr>
-                </table>
-              </div>
-
-              <div class="box">
-                <h4>👥👥👥 3 conexiones</h4>
-                <table>
-                  <tr><td>⏱️ 3 meses</td><td>84 €</td></tr>
-                  <tr><td>⏱️ 6 meses</td><td>128 €</td></tr>
-                  <tr><td>⏱️ 12 meses</td><td><b>165 €</b> <span class="best">Mejor</span></td></tr>
-                </table>
-              </div>
-            </div>
-
-            <div class="ctaRow">
-              <a class="btn primary full" target="_blank" rel="noopener"
-                 href="https://wa.me/34612268368?text=Hola%2C%20quiero%20PRUEBA%2024H%20del%20plan%20DIAMANTE%20VIP.%20Gracias.">
-                 📲 Prueba 24h Diamante
-              </a>
-              <a class="btn full" target="_blank" rel="noopener"
-                 href="https://wa.me/34612268368?text=Hola%2C%20quiero%20CONTRATAR%20DIAMANTE%20VIP.%20Ind%C3%ADcame%20opciones%20(1%2F2%2F3%20conexiones)%20y%20pago.%20Gracias.">
-                 ✅ Contratar Diamante
-              </a>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <div class="footer">
-      © 2025 RobertoTV · Contacto por WhatsApp
-    </div>
-
   </div>
+
+  <div class="badges">
+    <div class="badge">⚡ Activación rápida</div>
+    <div class="badge">🚫 Sin bloqueos</div>
+    <div class="badge">🔒 Privacidad</div>
+    <div class="badge">🕒 Soporte 24/7</div>
+    <div class="badge">🎁 Prueba 24h</div>
+  </div>
+
+  <a class="btn" href="https://wa.me/34612268368" target="_blank">📲 WhatsApp</a>
+</div>
+
+<!-- OPINIONES -->
+<div class="card">
+  <div class="stars">★★★★★ 5,0 · Clientes satisfechos</div>
+
+  <div class="review">“Funciona perfecto, muy estable y el soporte contesta rápido.” — Carlos M.</div>
+  <div class="review">“Calidad brutal, sin cortes y activación en minutos.” — Laura G.</div>
+  <div class="review">“Probé otros y este es el mejor con diferencia.” — Javier R.</div>
+</div>
+
+<!-- IMAGEN IMPERIUM -->
+<div class="img-box img-small">
+  <img src="imperium.jpg.png" alt="Imperium Plus">
+</div>
+
+<!-- PLAN IMPERIUM -->
+<div class="card">
+  <h2 class="plan-title">🔥 IMPERIUM PLUS</h2>
+  <p>Calidad premium con soporte.</p>
+
+  <h3>👤 1 Conexión</h3>
+  <div class="price-row"><span>3 meses</span><strong>22 €</strong></div>
+  <div class="price-row"><span>6 meses</span><strong>31 €</strong></div>
+  <div class="price-row"><span>12 meses</span><strong>40 €</strong></div>
+
+  <h3 style="margin-top:14px">👥 2 Conexiones</h3>
+  <div class="price-row"><span>3 meses</span><strong>43 €</strong></div>
+  <div class="price-row"><span>6 meses</span><strong>60 €</strong></div>
+  <div class="price-row"><span>12 meses</span><strong>78 €</strong></div>
+
+  <h3 style="margin-top:14px">👥👥👥 3 Conexiones</h3>
+  <div class="price-row"><span>3 meses</span><strong>61 €</strong></div>
+  <div class="price-row"><span>6 meses</span><strong>86 €</strong></div>
+  <div class="price-row"><span>12 meses</span><strong>112 €</strong></div>
+
+  <a class="btn" href="https://wa.me/34612268368?text=Quiero%20prueba%2024h%20Imperium" target="_blank">🎁 Prueba 24h Imperium</a>
+</div>
+
+<!-- IMAGEN DIAMANTE -->
+<div class="img-box img-small">
+  <img src="diamante.jpg" alt="Diamante VIP">
+</div>
+
+<!-- PLAN DIAMANTE -->
+<div class="card">
+  <h2 class="plan-title">💎 DIAMANTE VIP</h2>
+  <p>Máxima calidad y soporte premium.</p>
+
+  <h3>👤 1 Conexión</h3>
+  <div class="price-row"><span>3 meses</span><strong>30 €</strong></div>
+  <div class="price-row"><span>6 meses</span><strong>46 €</strong></div>
+  <div class="price-row"><span>12 meses</span><strong>59 €</strong></div>
+
+  <h3 style="margin-top:14px">👥 2 Conexiones</h3>
+  <div class="price-row"><span>3 meses</span><strong>58 €</strong></div>
+  <div class="price-row"><span>6 meses</span><strong>89 €</strong></div>
+  <div class="price-row"><span>12 meses</span><strong>114 €</strong></div>
+
+  <h3 style="margin-top:14px">👥👥👥 3 Conexiones</h3>
+  <div class="price-row"><span>3 meses</span><strong>84 €</strong></div>
+  <div class="price-row"><span>6 meses</span><strong>128 €</strong></div>
+  <div class="price-row"><span>12 meses</span><strong>165 €</strong></div>
+
+  <a class="btn" href="https://wa.me/34612268368?text=Quiero%20prueba%2024h%20Diamante" target="_blank">🎁 Prueba 24h Diamante</a>
+</div>
+
+</div>
 </body>
 </html>
