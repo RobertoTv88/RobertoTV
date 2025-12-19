@@ -3,325 +3,222 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>RobertoTv — TV por internet (solo legal)</title>
-  <meta name="description" content="Planes RobertoTv. Activación rápida y soporte por WhatsApp." />
-
+  <title>RobertoTv — Planes Premium</title>
+  <meta name="description" content="TV por internet con activación rápida, privacidad y soporte 24/7." />
   <style>
     :root{
-      --bg1:#071021;
-      --bg2:#0b1630;
-      --card:#0f1f3f;
-      --text:#eaf0ff;
-      --muted:#b8c4e6;
-      --line:rgba(255,255,255,.12);
-      --accent:#6aa6ff;
-      --accent2:#7cf0c8;
-      --shadow: 0 18px 60px rgba(0,0,0,.45);
-      --radius: 22px;
+      --bg:#071427;
+      --card:#0b1f3a;
+      --stroke:rgba(255,255,255,.10);
+      --text:#eaf2ff;
+      --muted:rgba(234,242,255,.72);
+      --brand:#4aa3ff;
+      --brand2:#6bdcff;
+      --ok:#2be5a6;
+      --shadow:0 18px 50px rgba(0,0,0,.45);
+      --radius:22px;
     }
     *{box-sizing:border-box}
     body{
       margin:0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
       color:var(--text);
-      background: radial-gradient(1100px 600px at 20% 0%, #102a66 0%, transparent 55%),
-                  radial-gradient(900px 600px at 90% 10%, #0b6a5c 0%, transparent 55%),
-                  linear-gradient(180deg, var(--bg1), var(--bg2));
-      min-height:100vh;
+      background:
+        radial-gradient(900px 500px at 25% 10%, rgba(74,163,255,.20), transparent 60%),
+        radial-gradient(700px 450px at 80% 30%, rgba(107,220,255,.14), transparent 55%),
+        linear-gradient(180deg, #061126 0%, #041022 100%);
     }
-
-    .wrap{max-width:1050px; margin:0 auto; padding:22px 16px 60px}
+    .wrap{max-width:1100px;margin:0 auto;padding:18px 14px 60px}
     .top{
-      display:flex; gap:14px; align-items:center; justify-content:space-between;
-      padding:14px 14px;
-      border:1px solid var(--line);
-      border-radius: var(--radius);
-      background: rgba(10,18,40,.55);
-      backdrop-filter: blur(8px);
-      box-shadow: var(--shadow);
+      display:flex;align-items:center;justify-content:space-between;gap:12px;
+      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border:1px solid var(--stroke);
+      border-radius:var(--radius);
+      padding:14px;
+      box-shadow:var(--shadow);
+      position:sticky;top:10px;backdrop-filter: blur(10px);
     }
-    .brand{display:flex; align-items:center; gap:12px; min-width:0}
+    .brandbox{display:flex;align-items:center;gap:12px}
     .logo{
-      width:44px; height:44px; border-radius:14px;
-      display:grid; place-items:center;
-      background: linear-gradient(135deg, #2f6bff, #8fe8ff);
-      color:#071021; font-weight:900;
-      flex:0 0 auto;
+      width:46px;height:46px;border-radius:14px;
+      background:linear-gradient(135deg,var(--brand),var(--brand2));
+      display:grid;place-items:center;font-weight:900;color:#05203f;
     }
-    .brand h1{margin:0; font-size:18px; line-height:1.1}
-    .brand p{margin:2px 0 0; font-size:13px; color:var(--muted)}
-    .ctaRow{display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end}
-
+    .actions{display:flex;gap:10px;flex-wrap:wrap}
     .btn{
-      display:inline-flex; align-items:center; justify-content:center;
-      gap:10px;
-      padding:12px 14px;
-      border-radius: 16px;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.06);
-      color:var(--text);
-      text-decoration:none;
-      font-weight:700;
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:10px 14px;border-radius:14px;border:1px solid var(--stroke);
+      background:rgba(255,255,255,.06);
+      color:var(--text);text-decoration:none;font-weight:700;
     }
     .btn.primary{
-      border:0;
-      background: linear-gradient(135deg, #3a78ff, #7bc7ff);
-      color:#061026;
+      background:linear-gradient(135deg,var(--brand),var(--brand2));
+      border:0;color:#04203d;
     }
-    .btn:hover{filter:brightness(1.05)}
-    .btn small{opacity:.85; font-weight:600}
-
     .hero{
-      margin-top:18px;
-      border-radius: var(--radius);
-      border:1px solid var(--line);
-      background: rgba(10,18,40,.45);
-      padding:18px 16px;
+      margin-top:14px;padding:18px;border-radius:var(--radius);
+      border:1px solid var(--stroke);
+      background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      box-shadow:var(--shadow);
     }
-    .bullets{display:grid; gap:8px; margin:0; padding-left:18px; color:var(--muted)}
-    .note{
-      margin-top:10px;
-      font-size:12px;
-      color:rgba(234,240,255,.75);
+    .badges{display:flex;flex-wrap:wrap;gap:10px;margin:0;padding:0;list-style:none}
+    .badge{
+      padding:10px 12px;border-radius:16px;border:1px solid var(--stroke);
+      background:rgba(0,0,0,.18);font-weight:700;font-size:13px;
     }
-
+    .stars{margin-top:10px;font-size:20px;color:#ffd166;font-weight:900}
+    .reviews{
+      margin-top:12px;
+      display:grid;gap:10px;
+    }
+    .review{
+      background:rgba(0,0,0,.25);
+      border:1px solid var(--stroke);
+      border-radius:16px;
+      padding:12px;
+      font-size:14px;
+    }
     .grid{
       margin-top:18px;
       display:grid;
-      grid-template-columns: 1fr;
-      gap:16px;
+      grid-template-columns:repeat(12,1fr);
+      gap:14px;
     }
-    @media (min-width: 860px){
-      .grid{grid-template-columns: 1fr 1fr;}
-    }
-
-    .plan{
-      position:relative;
-      border-radius: var(--radius);
+    .card{
+      grid-column:span 12;
+      border:1px solid var(--stroke);
+      border-radius:var(--radius);
       overflow:hidden;
-      border:1px solid var(--line);
-      box-shadow: var(--shadow);
-      min-height: 520px;
-      background: #0d1733;
-      background-size: cover;
-      background-position: center;
+      background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      box-shadow:var(--shadow);
     }
-    /* capa oscura encima para que el texto se lea */
-    .plan::before{
-      content:"";
-      position:absolute; inset:0;
-      background: linear-gradient(180deg, rgba(6,10,25,.35) 0%, rgba(6,10,25,.82) 65%, rgba(6,10,25,.92) 100%);
-    }
-
-    .content{
-      position:relative;
-      padding:18px 16px 16px;
-      display:flex;
-      flex-direction:column;
-      gap:12px;
-    }
-    .tag{
-      align-self:flex-start;
-      padding:6px 10px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.15);
-      background: rgba(0,0,0,.18);
-      font-weight:800;
-      letter-spacing:.2px;
-      font-size:12px;
-    }
-    .title{
-      display:flex; align-items:baseline; gap:10px; flex-wrap:wrap;
-      margin:0;
-      font-size:22px;
-      line-height:1.15;
-    }
-    .subtitle{margin:0; color:var(--muted); font-size:13px}
-
-    .tables{
-      display:grid;
-      grid-template-columns: 1fr;
-      gap:12px;
-      margin-top:6px;
-    }
-
-    .box{
-      border-radius: 18px;
-      border:1px solid rgba(255,255,255,.13);
-      background: rgba(255,255,255,.06);
-      backdrop-filter: blur(6px);
-      padding:12px 12px;
-    }
-    .box h3{
-      margin:0 0 10px;
-      font-size:14px;
-      letter-spacing:.2px;
-      display:flex; align-items:center; gap:8px;
-    }
-    .row{
-      display:flex; justify-content:space-between; align-items:center;
-      padding:8px 0;
-      border-top:1px solid rgba(255,255,255,.10);
-      font-size:14px;
-    }
-    .row:first-of-type{border-top:0}
-    .row b{font-size:15px}
-    .badgeBest{
-      margin-left:8px;
-      font-size:11px;
-      font-weight:900;
-      padding:3px 8px;
-      border-radius:999px;
-      background: rgba(124,240,200,.18);
-      border:1px solid rgba(124,240,200,.35);
-      color: #bff9e6;
-      vertical-align:middle;
-    }
-
-    .foot{
-      margin-top:auto;
-      display:flex; gap:10px; flex-wrap:wrap;
-      padding-top:6px;
-    }
-
-    .whats{
-      width:100%;
-      text-align:center;
-      border:0;
-      border-radius: 18px;
-      padding:13px 14px;
-      font-weight:900;
-      background: linear-gradient(135deg, #22c55e, #7cf0c8);
-      color:#061026;
-      text-decoration:none;
+    @media(min-width:920px){.card{grid-column:span 6}}
+    .cardhead{padding:14px}
+    .pill{
       display:inline-block;
+      padding:8px 12px;border-radius:999px;
+      background:rgba(0,0,0,.28);
+      border:1px solid var(--stroke);
+      font-weight:800;font-size:13px;
     }
-    .smallprint{
-      margin-top:6px;
-      font-size:12px;
-      color:rgba(234,240,255,.75);
+    .h1{font-size:32px;margin:8px 0;font-weight:900}
+    .desc{color:var(--muted);margin-bottom:10px}
+    .imgwrap img{width:100%;display:block}
+    .prices{padding:14px}
+    .row{
+      display:flex;justify-content:space-between;align-items:center;
+      padding:12px;border-top:1px solid rgba(255,255,255,.08);
+      font-weight:800;
     }
-
-    footer{
-      margin-top:18px;
-      color:rgba(234,240,255,.65);
-      font-size:12px;
-      text-align:center;
+    .row:first-child{border-top:0}
+    .cta{padding:14px;display:flex;gap:10px;flex-wrap:wrap}
+    .cta .btn{flex:1 1 180px}
+    .footer{
+      margin-top:22px;border-top:1px solid rgba(255,255,255,.10);
+      padding-top:14px;font-size:12px;color:rgba(234,242,255,.6)
     }
   </style>
 </head>
 
 <body>
-  <div class="wrap">
-    <div class="top">
-      <div class="brand">
-        <div class="logo">RT</div>
-        <div style="min-width:0">
-          <h1>RobertoTv</h1>
-          <p>TV por internet (solo legal)</p>
-        </div>
-      </div>
+<div class="wrap">
 
-      <div class="ctaRow">
-        <a class="btn" href="#planes">Ver planes</a>
-        <a class="btn primary" href="https://wa.me/34612268368?text=Hola%20RobertoTv%2C%20quiero%20informaci%C3%B3n%20y%20prueba.">WhatsApp</a>
+  <div class="top">
+    <div class="brandbox">
+      <div class="logo">RT</div>
+      <div>
+        <b>RobertoTv</b><br>
+        <span style="font-size:12px;color:var(--muted)">TV por internet</span>
       </div>
     </div>
-
-    <div class="hero">
-      <ul class="bullets">
-        <li>Activación rápida</li>
-        <li>Soporte por WhatsApp</li>
-        <li>Sin compromiso</li>
-      </ul>
-      <div class="note">Nota: La web no muestra tu IP a los visitantes. La IP la ve el servidor (GitHub) como en cualquier web normal.</div>
+    <div class="actions">
+      <a class="btn" href="#planes">Ver planes</a>
+      <a class="btn primary" href="https://wa.me/34612268368" target="_blank">WhatsApp</a>
     </div>
-
-    <div id="planes" class="grid">
-
-      <!-- PLAN 1: IMPERIUM -->
-      <section class="plan" style="background-image:url('imperium.png');">
-        <div class="content">
-          <div class="tag">🔥 IMPERIUM PLUS</div>
-          <h2 class="title">Imperium Plus</h2>
-          <p class="subtitle">Para quien quiere calidad premium y soporte.</p>
-
-          <div class="tables">
-            <div class="box">
-              <h3>👤 1 conexión / dispositivo</h3>
-              <div class="row"><span>⏱️ 3 meses</span><b>24 €</b></div>
-              <div class="row"><span>⏱️ 6 meses</span><b>34 €</b></div>
-              <div class="row"><span>⏱️ 12 meses</span><b>40 € <span class="badgeBest">Mejor</span></b></div>
-            </div>
-
-            <div class="box">
-              <h3>👥 2 conexiones (5% desc.)</h3>
-              <div class="row"><span>⏱️ 3 meses</span><b>46 €</b></div>
-              <div class="row"><span>⏱️ 6 meses</span><b>65 €</b></div>
-              <div class="row"><span>⏱️ 12 meses</span><b>84 € <span class="badgeBest">Mejor</span></b></div>
-            </div>
-
-            <div class="box">
-              <h3>👥👥👥 3 conexiones (10% desc.)</h3>
-              <div class="row"><span>⏱️ 3 meses</span><b>65 €</b></div>
-              <div class="row"><span>⏱️ 6 meses</span><b>92 €</b></div>
-              <div class="row"><span>⏱️ 12 meses</span><b>118 € <span class="badgeBest">Mejor</span></b></div>
-            </div>
-          </div>
-
-          <div class="foot">
-            <a class="whats" href="https://wa.me/34612268368?text=Hola%20RobertoTv%2C%20quiero%20el%20PLAN%20IMPERIUM%20PLUS.">Hablar por WhatsApp</a>
-            <div class="smallprint">📌 Configuración y soporte para TDT legal en tus dispositivos (según necesidad).</div>
-          </div>
-        </div>
-      </section>
-
-      <!-- PLAN 2: DIAMANTE -->
-      <section class="plan" style="background-image:url('diamante.jpg');">
-        <div class="content">
-          <div class="tag">💎 DIAMANTE VIP</div>
-          <h2 class="title">DiamanteVIP Premium</h2>
-          <p class="subtitle">Para quien quiere calidad total y atención premium.</p>
-
-          <div class="tables">
-            <div class="box">
-              <h3>👤 1 conexión / dispositivo</h3>
-              <div class="row"><span>⏱️ 3 meses</span><b>31 €</b></div>
-              <div class="row"><span>⏱️ 6 meses</span><b>48 €</b></div>
-              <div class="row"><span>⏱️ 12 meses</span><b>59 € <span class="badgeBest">Mejor</span></b></div>
-            </div>
-
-            <div class="box">
-              <h3>👥 2 conexiones (5% desc.)</h3>
-              <div class="row"><span>⏱️ 3 meses</span><b>59 €</b></div>
-              <div class="row"><span>⏱️ 6 meses</span><b>91 €</b></div>
-              <div class="row"><span>⏱️ 12 meses</span><b>118 € <span class="badgeBest">Mejor</span></b></div>
-            </div>
-
-            <div class="box">
-              <h3>👥👥👥 3 conexiones (10% desc.)</h3>
-              <div class="row"><span>⏱️ 3 meses</span><b>84 €</b></div>
-              <div class="row"><span>⏱️ 6 meses</span><b>130 €</b></div>
-              <div class="row"><span>⏱️ 12 meses</span><b>167 € <span class="badgeBest">Mejor</span></b></div>
-            </div>
-          </div>
-
-          <div class="foot">
-            <a class="whats" href="https://wa.me/34612268368?text=Hola%20RobertoTv%2C%20quiero%20el%20PLAN%20DIAMANTE%20VIP.">Hablar por WhatsApp</a>
-            <div class="smallprint">📌 + Aplicación si fuera necesario. (Te ayudamos a dejarlo funcionando.)</div>
-          </div>
-        </div>
-      </section>
-
-    </div>
-
-    <footer>
-      © <span id="y"></span> RobertoTv — Información y soporte por WhatsApp.
-    </footer>
   </div>
 
-  <script>
-    document.getElementById("y").textContent = new Date().getFullYear();
-  </script>
+  <div class="hero">
+    <ul class="badges">
+      <li class="badge">⚡ Activación rápida</li>
+      <li class="badge">🚫 Sin bloqueos</li>
+      <li class="badge">🛡️ Privacidad</li>
+      <li class="badge">🕒 Soporte 24/7</li>
+      <li class="badge">🎁 Prueba 24h</li>
+    </ul>
+
+    <div class="stars">★★★★★ 5,0 · Clientes satisfechos</div>
+
+    <div class="reviews">
+      <div class="review">“Funciona perfecto, muy estable y el soporte contesta rápido.” – Carlos M.</div>
+      <div class="review">“Calidad brutal, sin cortes y activación en minutos.” – Laura G.</div>
+      <div class="review">“Probé otros y este es el mejor con diferencia.” – Javier R.</div>
+    </div>
+  </div>
+
+  <div class="grid" id="planes">
+
+    <!-- IMPERIUM -->
+    <section class="card">
+      <div class="cardhead">
+        <span class="pill">🔥 IMPERIUM PLUS</span>
+        <div class="h1">Imperium Plus</div>
+        <p class="desc">Calidad premium con soporte.</p>
+      </div>
+      <div class="imgwrap">
+        <img src="imperium.png" alt="Imperium Plus">
+      </div>
+      <div class="prices">
+        <div class="row">
+          <span>Plan anual</span>
+          <span>40 €</span>
+        </div>
+      </div>
+      <div class="cta">
+        <a class="btn primary" href="https://wa.me/34612268368?text=Hola%20quiero%20PRUEBA%2024H%20del%20plan%20IMPERIUM%20PLUS" target="_blank">
+          📲 Prueba 24h Imperium
+        </a>
+        <a class="btn" href="https://wa.me/34612268368?text=Hola%20quiero%20contratar%20IMPERIUM%20PLUS%20ANUAL%2040€" target="_blank">
+          ✅ Contratar
+        </a>
+      </div>
+    </section>
+
+    <!-- DIAMANTE -->
+    <section class="card">
+      <div class="cardhead">
+        <span class="pill">💎 DIAMANTE VIP</span>
+        <div class="h1">Diamante VIP</div>
+        <p class="desc">Máxima calidad y soporte premium.</p>
+      </div>
+      <div class="imgwrap">
+        <img src="diamante.jpg" alt="Diamante VIP">
+      </div>
+      <div class="prices">
+        <div class="row">
+          <span>Plan anual</span>
+          <span>59 €</span>
+        </div>
+      </div>
+      <div class="cta">
+        <a class="btn primary" href="https://wa.me/34612268368?text=Hola%20quiero%20PRUEBA%2024H%20del%20plan%20DIAMANTE%20VIP" target="_blank">
+          📲 Prueba 24h Diamante
+        </a>
+        <a class="btn" href="https://wa.me/34612268368?text=Hola%20quiero%20contratar%20DIAMANTE%20VIP%20ANUAL%2059€" target="_blank">
+          ✅ Contratar
+        </a>
+      </div>
+    </section>
+
+  </div>
+
+  <div class="footer">
+    © <span id="y"></span> RobertoTv · Contacto por WhatsApp
+  </div>
+
+</div>
+
+<script>
+  document.getElementById("y").textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
